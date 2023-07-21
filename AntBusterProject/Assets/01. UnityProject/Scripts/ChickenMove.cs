@@ -12,8 +12,6 @@ public class ChickenMove : MonoBehaviour
     private int randomZ = default;
     private float time = default;
     private float moveTime = default;
-    private bool chickenMoving = default;
-
 
     private void Awake()
     {
@@ -23,8 +21,7 @@ public class ChickenMove : MonoBehaviour
         randomX = 0;
         randomZ = 0;
         time = 0;
-        moveTime = 1f;
-        chickenMoving = false;
+        moveTime = 0.5f;
     }
 
     void Start()
@@ -42,8 +39,8 @@ public class ChickenMove : MonoBehaviour
             {
                 randomX = Random.Range(-5, 5);
                 randomZ = Random.Range(-5, 5);
-                float xSpeed = randomX;
-                float zSpeed = randomZ;
+                float xSpeed = randomX * 1.5f;
+                float zSpeed = randomZ * 1.5f;
 
                 Vector3 targetPos = this.transform.position + new Vector3(xSpeed, 0f, zSpeed);
                 Vector3 dir = targetPos - this.transform.position;
