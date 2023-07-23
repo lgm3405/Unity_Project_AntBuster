@@ -5,12 +5,14 @@ using UnityEngine;
 public class ChickenSpawn : MonoBehaviour
 {
     public GameObject ChickenPrefab;
+    public int hp = default;
+    public int level = default;
 
     private int antsMax = default;
     private int ants = default;
     private float time = default;
     private float spawnTime = default;
-    private int hp = default;
+
 
     private void Awake()
     {
@@ -36,6 +38,7 @@ public class ChickenSpawn : MonoBehaviour
                 GameObject ant = Instantiate(ChickenPrefab, transform.position, transform.rotation);
                 ants += 1;
                 hp = GameManager.instance.level * 10;
+                level = GameManager.instance.level;
                 GameManager.instance.chickenCount += 1;
                 if (GameManager.instance.chickenCount >= 18)
                 {

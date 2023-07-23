@@ -95,8 +95,9 @@ GameObject:
   - component: {fileID: 7274849251767405417}
   - component: {fileID: 5897220604678187193}
   - component: {fileID: 7559788001531661013}
+  - component: {fileID: 9091192377824935975}
   m_Layer: 0
-  m_Name: BuildTower
+  m_Name: tower
   m_TagString: Drag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -156,6 +157,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.105401, y: 4.454339, z: 3.0410228}
   m_Center: {x: -0.06339812, y: 1.727171, z: -0.048172712}
+--- !u!114 &9091192377824935975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2965241858080987206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e75ba4800e68de3419ba8b85d389b358, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  draggable: 0
+  createTower: {fileID: 0}
 --- !u!1 &7512795965660058094
 GameObject:
   m_ObjectHideFlags: 0
