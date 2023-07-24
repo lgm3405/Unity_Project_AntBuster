@@ -5,6 +5,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class ChickenMove : MonoBehaviour
 {
+    private ChickenSpawn chickenSpawn;
     private Rigidbody ChickenRigidbody = default;
     private Transform target = default;
     private int antMoveType = default;
@@ -13,20 +14,27 @@ public class ChickenMove : MonoBehaviour
     private float time = default;
     private float moveTime = default;
 
+    public static int hp = default;
+    public static int level = default;
+
     private void Awake()
     {
         ChickenRigidbody = GetComponent<Rigidbody>();
         target = FindObjectOfType<Destination>().transform;
+        chickenSpawn = GameObject.Find("StartTunnul").GetComponent<ChickenSpawn>();
         antMoveType = 0;
         randomX = 0;
         randomZ = 0;
         time = 0;
         moveTime = 0.5f;
+        hp = 0;
+        level = 0;
     }
 
     void Start()
     {
-
+        hp = GameManager.instance.level * 10;
+        level = GameManager.instance.level;
     }
 
     void Update()
@@ -57,6 +65,26 @@ public class ChickenMove : MonoBehaviour
             }
 
             time = 0;
+        }
+    }
+
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (collider.tag == "Bullet")
+        {
+            collider.gameObject.SetActive(false);
+            Destroy(collider.gameObject, 1f);
+        }
+    }
+
+    public void Damage(int dmg)
+    {
+        hp -= dmg;
+        if (hp <= 0)
+        {
+            this.gameObject.SetActive(false);
+            Destroy(this.gameObject, 1f);
+            chickenSpawn.ants -= 1;
         }
     }
 }

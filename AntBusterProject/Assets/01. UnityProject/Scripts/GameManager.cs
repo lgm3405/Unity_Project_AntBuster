@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        
+        Invoke("BuildTowerStart", 2f);
     }
 
     void Update()
@@ -50,11 +50,16 @@ public class GameManager : MonoBehaviour
 
     public void ClickToChicken()
     {
-        createTower.SetActive(false);
+        //createTower.SetActive(false);
         chickenInfomation.SetActive(true);
 
         ObjectLevel.text = string.Format("Level : {0}", level_);
         ObjectHp.text = string.Format("HP : {0}", hp_);
 
+    }
+
+    public void BuildTowerStart()
+    {
+        createTower.SetActive(true);
     }
 }

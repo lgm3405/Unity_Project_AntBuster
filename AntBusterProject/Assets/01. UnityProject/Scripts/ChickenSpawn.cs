@@ -5,11 +5,9 @@ using UnityEngine;
 public class ChickenSpawn : MonoBehaviour
 {
     public GameObject ChickenPrefab;
-    public int hp = default;
-    public int level = default;
+    public int ants = default;
 
     private int antsMax = default;
-    private int ants = default;
     private float time = default;
     private float spawnTime = default;
 
@@ -20,7 +18,6 @@ public class ChickenSpawn : MonoBehaviour
         ants = 0;             // 현재 필드에 나와있는 개미 수
         time = 0;             // 체크 할 실제 시간값
         spawnTime = 2f;       // 개미 리스폰되는 시간
-        hp = 0;
     }
 
     void Start()
@@ -37,8 +34,6 @@ public class ChickenSpawn : MonoBehaviour
             {
                 GameObject ant = Instantiate(ChickenPrefab, transform.position, transform.rotation);
                 ants += 1;
-                hp = GameManager.instance.level * 10;
-                level = GameManager.instance.level;
                 GameManager.instance.chickenCount += 1;
                 if (GameManager.instance.chickenCount >= 18)
                 {
@@ -54,9 +49,4 @@ public class ChickenSpawn : MonoBehaviour
             }
         }
     }
-
-    //public void Damage(int hit)
-    //{
-    //    hp -= hit;
-    //}
 }

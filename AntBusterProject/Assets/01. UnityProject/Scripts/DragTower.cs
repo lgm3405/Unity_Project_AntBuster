@@ -10,10 +10,12 @@ public class DragTower : MonoBehaviour
     public CreateTower createTower;
 
     private DragTower dragTower_;
+    private BuildTowerAttack buildTowerAttack_;
 
     private void Awake()
     {
         dragTower_ = gameObject.GetComponent<DragTower>();
+        buildTowerAttack_ = gameObject.GetComponent<BuildTowerAttack>();
     }
 
     // 매 프레임 별 호출되는 메소드
@@ -40,6 +42,7 @@ public class DragTower : MonoBehaviour
             draggable = false;
 
             dragTower_.enabled = false;
+            buildTowerAttack_.enabled = true;
 
             // 추가한 코드
             // 현재 참조된 createCube 스크립트가 있다면 if문 내 코드 실행

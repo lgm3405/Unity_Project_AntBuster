@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -402,6 +402,37 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &671511581
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 671511582}
+  m_Layer: 0
+  m_Name: ChickenPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &671511582
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671511581}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &721694630
 GameObject:
   m_ObjectHideFlags: 0
@@ -511,7 +542,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &743671460
 RectTransform:
   m_ObjectHideFlags: 0
@@ -652,6 +683,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChickenPrefab: {fileID: 631200189144460100, guid: 4f505da88bcd3564f8c17d803923d50f, type: 3}
+  ants: 0
 --- !u!4 &803917834 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4982127149357740, guid: 41b018f12ce178147b4607881dbcdcea, type: 3}
@@ -1075,7 +1107,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b79af1f527f56846bd4ac79c1b566ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomTowerUi: {fileID: 0}
   getCamera: {fileID: 881623528}
+  level_: 0
+  hp_: 0
 --- !u!4 &970161587
 Transform:
   m_ObjectHideFlags: 0
@@ -1091,6 +1126,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &996210471 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2988733959289468275, guid: 9ea2b1eb057615649aef4559fa4cd1ec, type: 3}
+  m_PrefabInstance: {fileID: 2988733958464524261}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &996210476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996210471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea583a682de8d25489621a35dae71274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerToCreate: {fileID: 3330197942600586402, guid: 00a3ecdb0ac025a488ee1e13ab054b2d, type: 3}
+  tower: {fileID: 0}
 --- !u!1 &1040228209
 GameObject:
   m_ObjectHideFlags: 0
@@ -1322,6 +1376,9 @@ MonoBehaviour:
   chickenInfomation: {fileID: 1277748784}
   ObjectLevel: {fileID: 1040228211}
   ObjectHp: {fileID: 1657783373}
+  obj_: {fileID: 0}
+  hp_: 0
+  level_: 0
 --- !u!1 &1204611418
 GameObject:
   m_ObjectHideFlags: 0
@@ -1573,6 +1630,37 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1319860246
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1319860247}
+  m_Layer: 0
+  m_Name: BulletPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1319860247
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319860246}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1486819437
 GameObject:
   m_ObjectHideFlags: 0
@@ -2217,5 +2305,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: createTowerIcon
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 2988733959289468280, guid: 9ea2b1eb057615649aef4559fa4cd1ec, type: 3}
+      propertyPath: tower
+      value: 
+      objectReference: {fileID: 3330197942600586402, guid: 00a3ecdb0ac025a488ee1e13ab054b2d, type: 3}
+    - target: {fileID: 2988733959289468280, guid: 9ea2b1eb057615649aef4559fa4cd1ec, type: 3}
+      propertyPath: towerPrefab
+      value: 
+      objectReference: {fileID: 2965241858080987206, guid: 00a3ecdb0ac025a488ee1e13ab054b2d, type: 3}
+    - target: {fileID: 2988733959289468280, guid: 9ea2b1eb057615649aef4559fa4cd1ec, type: 3}
+      propertyPath: towerToCreate
+      value: 
+      objectReference: {fileID: 838122133}
+    m_RemovedComponents:
+    - {fileID: 2988733959289468280, guid: 9ea2b1eb057615649aef4559fa4cd1ec, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9ea2b1eb057615649aef4559fa4cd1ec, type: 3}
