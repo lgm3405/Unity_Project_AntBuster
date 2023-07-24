@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     public Text ObjectLevel = default;
     public Text ObjectHp = default;
     public GameObject obj_ = default;
+    public bool draggable = false;
+    public int clickOrder = default;
 
     public int hp_ = default;
     public int level_ = default;
@@ -36,6 +38,7 @@ public class GameManager : MonoBehaviour
         chickenCount = 0;
         level_ = 0;
         hp_ = 0;
+        clickOrder = 1;
     }
 
     void Start()

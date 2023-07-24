@@ -5,7 +5,6 @@ using UnityEngine;
 public class DragTower : MonoBehaviour
 {
     // 드래그가 가능한 상태인지 확인하는 bool 변수
-    public bool draggable;
 
     public CreateTower createTower;
 
@@ -24,14 +23,15 @@ public class DragTower : MonoBehaviour
         // 사용자가 마우스 왼쪽버튼을 눌렀을 때 true를 반환해 if문 내 코드 실행
         if (Input.GetMouseButtonDown(0))
         {
+            // 드래그가 가능한 상태로 변경
+            GameManager.instance.draggable = true;
             // Raycast를 생성해 부딪힌 오브젝트 반환
             RaycastHit hit = CastRay();
 
             // 부딪힌 오브젝트가 현재 스크립트 update메소드가 실행되고 있는 오브젝트일 경우
             if (hit.transform == transform)
             {
-                // 드래그가 가능한 상태로 변경
-                draggable = true;
+                buildTowerAttack_.enabled = false;
             }
         }
 
@@ -39,7 +39,7 @@ public class DragTower : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             // 드래그가 불가능한 상태로 변경
-            draggable = false;
+            GameManager.instance.draggable = false;
 
             dragTower_.enabled = false;
             buildTowerAttack_.enabled = true;
@@ -56,7 +56,7 @@ public class DragTower : MonoBehaviour
         }
 
         // 현재 드래그가 가능한 상태일 경우 if문 내 코드 실행
-        if (draggable)
+        if (GameManager.instance.draggable == true)
         {
             // 현재 화면에 있는 마우스 커서의 x,y 좌표와 카메라를 통해 보는 이 스크립트가 실행되는 오브젝트의 z좌표를 사용해 ScreenPoint Vector3 position 값 생성
             Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.WorldToScreenPoint(transform.position).z);

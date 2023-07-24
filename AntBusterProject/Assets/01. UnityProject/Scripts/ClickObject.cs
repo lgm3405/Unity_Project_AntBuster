@@ -5,17 +5,22 @@ using UnityEngine.UI;
 
 public class ClickObject : MonoBehaviour
 {
-    public GameObject randomTowerUi;
     public Camera getCamera;
     public int level_;
     public int hp_;
+    public Image randomTower;
 
     private RaycastHit hit;
     private GameObject obj;
-
+    
     private void Awake()
     {
-        randomTowerUi = GetComponent<GameObject>();
+        randomTower = GetComponent<Image>();
+    }
+
+    void Start()
+    {
+        
     }
 
     void Update()
@@ -31,7 +36,8 @@ public class ClickObject : MonoBehaviour
 
                 if (objectName == ("tower(Clone)"))
                 {
-                    //randomTowerUi.SetActive(true);
+                    Debug.Log("타워를 클릭했다");
+                    //randomTower.enabled = true;
                 }
                 if (objectName == ("Chicken(Clone)"))
                 {

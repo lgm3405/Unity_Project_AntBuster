@@ -8,7 +8,6 @@ public class BuildTowerAttack : MonoBehaviour
 {
     public GameObject buildTowerBulletPrefab;
 
-    private Transform target = default;
     private float shotsTime = default;
     private float shotsCoolTime = default;
     private BuildTowerAttack buildTowerAttack_;
