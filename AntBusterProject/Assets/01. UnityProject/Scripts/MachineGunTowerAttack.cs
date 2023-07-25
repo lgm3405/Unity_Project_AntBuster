@@ -12,7 +12,7 @@ public class MachineGunTowerAttack : MonoBehaviour
     private void Awake()
     {
         shotsTime = 0;
-        shotsCoolTime = 0.2f;
+        shotsCoolTime = 0.3f;
     }
 
     void Update()
@@ -25,6 +25,8 @@ public class MachineGunTowerAttack : MonoBehaviour
 
     private void OnTriggerStay(Collider collider)
     {
+        if (GameManager.instance.isGameOver == true) { return; }
+
         if (collider.tag == "Chicken")
         {
             if (shotsTime >= shotsCoolTime)

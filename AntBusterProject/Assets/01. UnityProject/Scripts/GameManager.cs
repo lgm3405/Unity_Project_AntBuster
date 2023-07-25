@@ -17,9 +17,11 @@ public class GameManager : MonoBehaviour
     public int level = default;
     public int chickenCount = default;
     public bool draggable = false;
+    public bool isGameOver = false;
     public int money = default;
     public int randomTowerPay = default;
     public int towerCount = default;
+    public int eggLife = default;
 
     private void Awake()
     {
@@ -38,13 +40,21 @@ public class GameManager : MonoBehaviour
         money = 100;
         randomTowerPay = 50;
         towerCount = 0;
+        eggLife = 6;
     }
 
     void Update()
     {
+        if (isGameOver == true) { return; }
+
         gameLevel.text = string.Format("Level : {0}", level);
         gameMoney.text = string.Format("Money : {0}", money);
         towerCost.text = string.Format("Cost : {0}", randomTowerPay);
+    }
+
+    public void EndGame()
+    {
+
     }
 
     //public void ClickToChicken()

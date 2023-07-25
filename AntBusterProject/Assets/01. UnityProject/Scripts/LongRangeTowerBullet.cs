@@ -22,6 +22,8 @@ public class LongRangeTowerBullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
+        if (GameManager.instance.isGameOver == true) { return; }
+
         if (collider.tag == "Chicken")
         {
             ChickenMove chickenMove_ = collider.GetComponent<ChickenMove>();

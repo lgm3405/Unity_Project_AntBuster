@@ -11,7 +11,6 @@ public class ChickenSpawn : MonoBehaviour
     private float time = default;
     private float spawnTime = default;
 
-
     private void Awake()
     {
         antsMax = 6;          // 필드에 나오는 개미 최대 수
@@ -20,16 +19,13 @@ public class ChickenSpawn : MonoBehaviour
         spawnTime = 2f;       // 개미 리스폰되는 시간
     }
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         time += Time.deltaTime;
         if (time >= spawnTime)
         {
+            if (GameManager.instance.isGameOver == true) { return; }
+
             if (ants < antsMax)
             {
                 GameObject ant = Instantiate(ChickenPrefab, transform.position, transform.rotation);

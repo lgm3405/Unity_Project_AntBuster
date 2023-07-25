@@ -47,6 +47,8 @@ public class DragTower : MonoBehaviour
             // 현재 참조된 createCube 스크립트가 있다면 if문 내 코드 실행
             if (createTower != null)
             {
+                if (GameManager.instance.isGameOver == true) { return; }
+
                 Vector3 towerPosition = createTower.tower.transform.position;
 
                 randomInt = Random.Range(0, randomTowers.Length);
@@ -54,11 +56,12 @@ public class DragTower : MonoBehaviour
                 GameObject randomTower = Instantiate(selectTower, towerPosition, Quaternion.identity);
                 createTower.tower.gameObject.SetActive(false);
                 Destroy(createTower.tower.gameObject, 1f);
+
                 selectTower = null;
 
                 GameManager.instance.money -= GameManager.instance.randomTowerPay;
                 GameManager.instance.towerCount += 1;
-                GameManager.instance.randomTowerPay += 20;
+                GameManager.instance.randomTowerPay += 15;
 
                 // 해당 스크립트 내 cube null 처리
                 createTower.tower = null;

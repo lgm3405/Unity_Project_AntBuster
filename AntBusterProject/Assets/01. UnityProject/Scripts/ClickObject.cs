@@ -14,6 +14,8 @@ public class ClickObject : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            if (GameManager.instance.isGameOver == true) { return; }
+
             Ray ray = getCamera.ScreenPointToRay(Input.mousePosition);
 
             if (Physics.Raycast(ray, out hit))

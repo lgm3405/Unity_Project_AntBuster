@@ -37,19 +37,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 74cbada03bcd41d49acec56746acf71e, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.64829093
+      value: 0.604716
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 74cbada03bcd41d49acec56746acf71e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.0058646663
+      value: -0.0031352253
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 74cbada03bcd41d49acec56746acf71e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.76133895
+      value: 0.7964243
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 74cbada03bcd41d49acec56746acf71e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0068873395
+      value: 0.004129161
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 74cbada03bcd41d49acec56746acf71e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -105,7 +105,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.6
+  m_Radius: 0.7
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &9163890246785485929
 MonoBehaviour:

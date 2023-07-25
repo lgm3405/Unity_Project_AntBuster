@@ -9,7 +9,7 @@ public class HeavyTowerBullet : MonoBehaviour
 
     private void Awake()
     {
-        speed = 20f;
+        speed = 30f;
     }
 
     void Start()
@@ -21,6 +21,8 @@ public class HeavyTowerBullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
+        if (GameManager.instance.isGameOver == true) { return; }
+
         if (collider.tag == "Chicken")
         {
             ChickenMove chickenMove_ = collider.GetComponent<ChickenMove>();

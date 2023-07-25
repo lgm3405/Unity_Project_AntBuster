@@ -7,7 +7,6 @@ public class Destination : MonoBehaviour
     public GameObject[] eggs = new GameObject[6];
 
     private GameObject thisEgg;
-    private Transform childThisEgg;
     private int eggCount = default;
     private bool[] eggCheck = new bool[6];
 
@@ -23,12 +22,17 @@ public class Destination : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
+        if (GameManager.instance.isGameOver == true) { return; }
+
         if (collider.tag == "Chicken")
         {
             if (eggCount > 0)
             {
                 thisEgg = collider.gameObject;
+                if (thisEgg.GetComponent<ChickenMove>().getEgg == true) { return; }
+
                 thisEgg.GetComponent<ChickenMove>().getEgg = true;
+                thisEgg.GetComponent<ChickenMove>().EggOn();
 
                 for (int i = 0; i < 6; i++)
                 {
@@ -40,11 +44,21 @@ public class Destination : MonoBehaviour
                         break;
                     }
                 }
-
-                //thisEgg.GetComponent<ChickenMove>().childEgg.gameObject.SetActive(true);
-
             }
-            
+        }
+    }
+
+    public void EggReturn()
+    {
+        for (int i = 0; i < 6; i++)
+        {
+            if (eggCheck[i] == false)
+            {
+                eggs[i].SetActive(true);
+                eggCheck[i] = true;
+                eggCount += 1;
+                break;
+            }
         }
     }
 }

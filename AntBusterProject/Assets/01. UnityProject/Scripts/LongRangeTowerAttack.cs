@@ -27,6 +27,8 @@ public class LongRangeTowerAttack : MonoBehaviour
 
     private void OnTriggerStay(Collider collider)
     {
+        if (GameManager.instance.isGameOver == true) { return; }
+
         if (collider.tag == "Chicken")
         {
             if (shotsTime >= shotsCoolTime)

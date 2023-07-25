@@ -13,6 +13,8 @@ public class CreateTower : MonoBehaviour
     // Prefab 생성 메소드
     public void DragTowerCreate()
     {
+        if (GameManager.instance.isGameOver == true) { return; }
+
         if (GameManager.instance.money < GameManager.instance.randomTowerPay) { return; }
 
         // 현재 생성되어 드래그 중인 Prefab이 없을 경우 if문 내 코드 실행

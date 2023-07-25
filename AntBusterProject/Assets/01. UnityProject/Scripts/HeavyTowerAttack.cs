@@ -12,7 +12,7 @@ public class HeavyTowerAttack : MonoBehaviour
     private void Awake()
     {
         shotsTime = 0;
-        shotsCoolTime = 2f;
+        shotsCoolTime = 1f;
     }
 
     void Update()
@@ -25,6 +25,8 @@ public class HeavyTowerAttack : MonoBehaviour
 
     private void OnTriggerStay(Collider collider)
     {
+        if (GameManager.instance.isGameOver == true) { return; }
+
         if (collider.tag == "Chicken")
         {
             if (shotsTime >= shotsCoolTime)

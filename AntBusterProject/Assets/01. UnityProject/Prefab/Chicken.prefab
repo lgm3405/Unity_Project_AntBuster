@@ -816,7 +816,7 @@ GameObject:
   - component: {fileID: 95943282229431942}
   - component: {fileID: 443100182048880188}
   - component: {fileID: 3237987956743153993}
-  - component: {fileID: 3103177564728933893}
+  - component: {fileID: 7250228014239443623}
   m_Layer: 0
   m_Name: Chicken
   m_TagString: Chicken
@@ -833,7 +833,7 @@ Transform:
   m_GameObject: {fileID: 631200189144460100}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 8, y: 8, z: 8}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4677390999235134}
@@ -895,7 +895,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.16931489
   m_Center: {x: 0, y: 0.20000002, z: 0}
---- !u!114 &3103177564728933893
+--- !u!114 &7250228014239443623
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -907,6 +907,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2de2cbeae1c5a854f843cadb08a53712, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  getEgg: 0
+  chickenEgg: {fileID: 1729894509620646339}
 --- !u!1001 &5253529307899920174
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -983,5 +985,10 @@ PrefabInstance:
 --- !u!4 &1729894509620350435 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5830359375317545677, guid: a6f0b39e99bf890449ef94bfdb9654bb, type: 3}
+  m_PrefabInstance: {fileID: 5253529307899920174}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1729894509620646339 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5830359375317577453, guid: a6f0b39e99bf890449ef94bfdb9654bb, type: 3}
   m_PrefabInstance: {fileID: 5253529307899920174}
   m_PrefabAsset: {fileID: 0}
