@@ -16,9 +16,12 @@ public class ChickenMove : MonoBehaviour
 
     public static int hp = default;
     public static int level = default;
+    public bool getEgg = false;
+    //public Transform childEgg;
 
     private void Awake()
     {
+        //childEgg = GetComponent<Transform>().Find("Chicken").transform.Find("egg");
         ChickenRigidbody = GetComponent<Rigidbody>();
         target = FindObjectOfType<Destination>().transform;
         chickenSpawn = GameObject.Find("StartTunnul").GetComponent<ChickenSpawn>();
@@ -47,8 +50,8 @@ public class ChickenMove : MonoBehaviour
             {
                 randomX = Random.Range(-5, 5);
                 randomZ = Random.Range(-5, 5);
-                float xSpeed = randomX * 1.5f;
-                float zSpeed = randomZ * 1.5f;
+                float xSpeed = randomX * 2f;
+                float zSpeed = randomZ * 2f;
 
                 Vector3 targetPos = this.transform.position + new Vector3(xSpeed, 0f, zSpeed);
                 Vector3 dir = targetPos - this.transform.position;
@@ -61,7 +64,7 @@ public class ChickenMove : MonoBehaviour
             else
             {
                 this.transform.LookAt(target);
-                ChickenRigidbody.velocity = transform.forward * 5;
+                ChickenRigidbody.velocity = transform.forward * 10;
             }
 
             time = 0;
@@ -82,6 +85,7 @@ public class ChickenMove : MonoBehaviour
         hp -= dmg;
         if (hp <= 0)
         {
+            GameManager.instance.money += 3 + (GameManager.instance.level * 2);
             this.gameObject.SetActive(false);
             Destroy(this.gameObject, 1f);
             chickenSpawn.ants -= 1;

@@ -197,7 +197,6 @@ GameObject:
   - component: {fileID: 5897220604678187193}
   - component: {fileID: 1439983129}
   - component: {fileID: 9091192377824935975}
-  - component: {fileID: 7865495590331777325}
   m_Layer: 0
   m_Name: tower
   m_TagString: Untagged
@@ -273,19 +272,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   createTower: {fileID: 0}
---- !u!114 &7865495590331777325
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2965241858080987206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a6c8b220ac84e5459f90c0a450f848c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildTowerBulletPrefab: {fileID: 2348155183755399282, guid: f2a6a01718c200448bfabe51e850e859, type: 3}
+  randomTowers:
+  - {fileID: 2965241858080987206, guid: 2bdf794c4ee300349aa07068ab511af6, type: 3}
+  - {fileID: 36111105901101028, guid: 114bee012898fb2478a5daa61be8a4d4, type: 3}
+  - {fileID: 6939689351392528109, guid: 78594eb0727c84840b7db726e05e8e26, type: 3}
 --- !u!1 &7512795965660058094
 GameObject:
   m_ObjectHideFlags: 0

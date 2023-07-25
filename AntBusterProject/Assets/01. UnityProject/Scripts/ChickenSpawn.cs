@@ -35,7 +35,7 @@ public class ChickenSpawn : MonoBehaviour
                 GameObject ant = Instantiate(ChickenPrefab, transform.position, transform.rotation);
                 ants += 1;
                 GameManager.instance.chickenCount += 1;
-                if (GameManager.instance.chickenCount >= 18)
+                if (GameManager.instance.chickenCount >= 12)
                 {
                     GameManager.instance.level += 1;
                     GameManager.instance.chickenCount = 0;

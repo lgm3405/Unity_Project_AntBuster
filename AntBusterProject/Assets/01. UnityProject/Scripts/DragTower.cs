@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class DragTower : MonoBehaviour
@@ -7,14 +8,14 @@ public class DragTower : MonoBehaviour
     // 드래그가 가능한 상태인지 확인하는 bool 변수
 
     public CreateTower createTower;
+    public GameObject[] randomTowers = new GameObject[3];
 
-    private DragTower dragTower_;
-    private BuildTowerAttack buildTowerAttack_;
+    private int randomInt = default;
+    private GameObject selectTower;
 
     private void Awake()
     {
-        dragTower_ = gameObject.GetComponent<DragTower>();
-        buildTowerAttack_ = gameObject.GetComponent<BuildTowerAttack>();
+        randomInt = 0;
     }
 
     // 매 프레임 별 호출되는 메소드
@@ -23,15 +24,14 @@ public class DragTower : MonoBehaviour
         // 사용자가 마우스 왼쪽버튼을 눌렀을 때 true를 반환해 if문 내 코드 실행
         if (Input.GetMouseButtonDown(0))
         {
-            // 드래그가 가능한 상태로 변경
-            GameManager.instance.draggable = true;
             // Raycast를 생성해 부딪힌 오브젝트 반환
             RaycastHit hit = CastRay();
 
             // 부딪힌 오브젝트가 현재 스크립트 update메소드가 실행되고 있는 오브젝트일 경우
             if (hit.transform == transform)
             {
-                buildTowerAttack_.enabled = false;
+                // 드래그가 가능한 상태로 변경
+                GameManager.instance.draggable = true;
             }
         }
 
@@ -41,13 +41,25 @@ public class DragTower : MonoBehaviour
             // 드래그가 불가능한 상태로 변경
             GameManager.instance.draggable = false;
 
-            dragTower_.enabled = false;
-            buildTowerAttack_.enabled = true;
+            //dragTower_.enabled = false;
 
             // 추가한 코드
             // 현재 참조된 createCube 스크립트가 있다면 if문 내 코드 실행
             if (createTower != null)
             {
+                Vector3 towerPosition = createTower.tower.transform.position;
+
+                randomInt = Random.Range(0, randomTowers.Length);
+                selectTower = randomTowers[randomInt];
+                GameObject randomTower = Instantiate(selectTower, towerPosition, Quaternion.identity);
+                createTower.tower.gameObject.SetActive(false);
+                Destroy(createTower.tower.gameObject, 1f);
+                selectTower = null;
+
+                GameManager.instance.money -= GameManager.instance.randomTowerPay;
+                GameManager.instance.towerCount += 1;
+                GameManager.instance.randomTowerPay += 20;
+
                 // 해당 스크립트 내 cube null 처리
                 createTower.tower = null;
                 // 해당 스크립트 참조 해제

@@ -7,6 +7,7 @@ TagManager:
   - Drag
   - Chicken
   - Bullet
+  - Egg
   layers:
   - Default
   - TransparentFX
