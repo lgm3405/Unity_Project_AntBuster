@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public GameObject createTower = default;
+    public GameObject gameOver = default;
     public Text gameLevel = default;
     public Text gameMoney = default;
     public Text towerCost = default;
@@ -45,16 +46,21 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (isGameOver == true) { return; }
-
-        gameLevel.text = string.Format("Level : {0}", level);
-        gameMoney.text = string.Format("Money : {0}", money);
-        towerCost.text = string.Format("Cost : {0}", randomTowerPay);
+        if (isGameOver == true && Input.GetKeyDown(KeyCode.R))
+        {
+            GFunc.LoadScene(GFunc.GetActiveSceneName());
+        }
+        else if (isGameOver == false)
+        {
+            gameLevel.text = string.Format("Level : {0}", level);
+            gameMoney.text = string.Format("Money : {0}", money);
+            towerCost.text = string.Format("Cost : {0}", randomTowerPay);
+        }
     }
 
     public void EndGame()
     {
-
+        gameOver.SetActive(true);
     }
 
     //public void ClickToChicken()

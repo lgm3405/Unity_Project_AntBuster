@@ -21,4 +21,10 @@ public static partial class GFunc
     {
         SceneManager.LoadScene(sceneName_);
     }       // LoadScene()
+
+    //! 현재 실행중인 씬을 불러오는 함수
+    public static string GetActiveSceneName()
+    {
+        return SceneManager.GetActiveScene().name;
+    }
 }
